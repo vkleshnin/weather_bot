@@ -54,7 +54,7 @@ func respond(botUrl string, update Update) error {
 	botMessage.ChatId = update.Message.Chat.ChatId
 	switch update.Message.Text {
 	case "/start":
-		botMessage.Text = "Hi, my name is my_weather_bot. Please, send me your city."
+		botMessage.Text = "Привет, меня зовут my_weather_bot. Напиши город, чтобы узнать погоду."
 	default:
 		weather, err := weatherAPI(trueCityName(update.Message.Text))
 		if err != nil {
