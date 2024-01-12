@@ -38,3 +38,8 @@ type Current struct {
 	Temp    float64 `json:"temp_c"`
 	WindMPH float64 `json:"wind_mph"`
 }
+
+type Tokens struct {
+	Telegram string `json:"telegram"`
+	Weather  string `json:"weather"`
+}

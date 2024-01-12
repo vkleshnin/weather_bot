@@ -11,7 +11,11 @@ import (
 )
 
 func startBot() {
-	botToken := "5514527614:AAFbQ4kuwG3QrbJeO12haFH3inoFIiAQvJk"
+	var tokens Tokens
+	tokensJson, _ := ioutil.ReadFile("../../tokens.json")
+	json.Unmarshal(tokensJson, &tokens)
+
+	botToken := tokens.Telegram
 	botApi := "https://api.telegram.org/bot"
 	botUrl := botApi + botToken
 	offset := 0

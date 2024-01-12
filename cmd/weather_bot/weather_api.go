@@ -9,7 +9,11 @@ import (
 )
 
 func weatherAPI(city string) (*WeatherData, error) {
-	weatherToken := "167cfa7007134746a00124044222806"
+	var tokens Tokens
+	tokensJson, _ := ioutil.ReadFile("../../tokens.json")
+	json.Unmarshal(tokensJson, &tokens)
+
+	weatherToken := tokens.Weather
 	weatherApi := "https://api.weatherapi.com/v1/current.json"
 	weatherUrl := weatherApi + "?key=" + weatherToken
 	weatherData, err := getWeather(weatherUrl, city)
